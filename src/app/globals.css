@@ -162,6 +162,14 @@
 /* ==================== GREETING ==================== */
 .greeting-block {
   margin-bottom: 0.25rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.greeting-text {
+  min-width: 0;
 }
 
 .greeting-name {
@@ -268,8 +276,9 @@
 
 @media (max-width: 768px) {
   .top-controls {
-    top: 0.75rem;
-    right: 0.75rem;
+    position: static;
+    flex-shrink: 0;
+    padding-top: 0.125rem;
   }
 }
 
