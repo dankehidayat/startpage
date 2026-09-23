@@ -65,7 +65,7 @@ Featured pills, puzzle background (via `mask-image`), and focus rings read these
 Overlay (`backdrop-filter: blur`) + `.search-box`: input row with icon, debounced (200ms) DuckDuckGo autocomplete, vertical `.search-result` rows (command icon · label · domain · arrow), recent searches (localStorage, max 5), loading spinner, keyboard hints footer (`↑↓` `↵` `esc` `?`). Mobile: `padding-top: 10vh`, `max-height: 80vh`, scrollable.
 
 ### Settings panel
-Modal with username text input, carousel-delay slider (5–30s), show-clock toggle. Persists to `localStorage` (`neon_username`, `neon_carousel_delay`, `neon_show_clock`). Opens via gear button or `Ctrl+,`.
+Modal with username text input, carousel-delay slider (5–30s), show-clock toggle. Persists to `localStorage` (`startpage_username`, `startpage_carousel_delay`, `startpage_show_clock`). Opens via gear button or `Ctrl+,`.
 
 ### Puzzle background
 Inline SVG puzzle pattern as `mask-image`, painted with `background-color: var(--art-primary)` — the field tints with the art. Opacity ~12% light / 15% dark.

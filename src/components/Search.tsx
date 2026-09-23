@@ -44,7 +44,7 @@ declare global {
   }
 }
 
-const RECENT_KEY = "neon_recent_searches";
+const RECENT_KEY = "startpage_recent_searches";
 const MAX_RECENT = 5;
 
 function getRecentSearches(): string[] {

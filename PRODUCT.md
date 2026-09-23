@@ -44,7 +44,7 @@ A Homely-inspired startpage: a single dark/light-adaptive card centered on a cre
 
 ## Brand Commitments
 
-- Product name in UI: "Neon"; README project name: "Startpage"
+- Product name in UI: "Startpage"; repo: `dankehidayat/startpage`
 - Voice: quiet, personal, polite — Japanese greeting as the human touch
 - Art is decorative, always credited to the original artist with source link
 - No external dependencies beyond React, Tailwind, next/image, and standard Next.js

@@ -224,9 +224,9 @@ export default function Home() {
 
   // Load settings from localStorage on mount
   useEffect(() => {
-    const savedUsername = localStorage.getItem("neon_username");
-    const savedDelay = localStorage.getItem("neon_carousel_delay");
-    const savedClock = localStorage.getItem("neon_show_clock");
+    const savedUsername = localStorage.getItem("startpage_username");
+    const savedDelay = localStorage.getItem("startpage_carousel_delay");
+    const savedClock = localStorage.getItem("startpage_show_clock");
 
     if (savedUsername !== null) setUsername(savedUsername);
     if (savedDelay !== null) setCarouselDelay(Number(savedDelay));
@@ -304,17 +304,17 @@ export default function Home() {
   // Save settings to localStorage
   const saveUsername = useCallback((name: string) => {
     setUsername(name);
-    localStorage.setItem("neon_username", name);
+    localStorage.setItem("startpage_username", name);
   }, []);
 
   const saveCarouselDelay = useCallback((delay: number) => {
     setCarouselDelay(delay);
-    localStorage.setItem("neon_carousel_delay", String(delay));
+    localStorage.setItem("startpage_carousel_delay", String(delay));
   }, []);
 
   const saveShowClock = useCallback((show: boolean) => {
     setShowClock(show);
-    localStorage.setItem("neon_show_clock", String(show));
+    localStorage.setItem("startpage_show_clock", String(show));
   }, []);
 
   // Global keyboard: any letter opens search

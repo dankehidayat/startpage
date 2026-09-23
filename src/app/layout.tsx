@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/lib/theme";
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Neon",
+  title: "Startpage",
   description: "A minimalist startpage",
 };
 
