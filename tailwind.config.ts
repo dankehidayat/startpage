@@ -8,12 +8,7 @@ const config: Config = {
   ],
   darkMode: "class",
   theme: {
-    extend: {
-      fontFamily: {
-        inter: ["Inter", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 } satisfies Config;
