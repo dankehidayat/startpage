@@ -1,51 +1,43 @@
-# Neon Startpage
+# Startpage
 
-A modern, minimalist browser startpage designed for power users who want quick access to their most-used web services and efficient web searching.
+A cozy, keyboard-first browser startpage. One centered card: anime art carousel on the left, your most-used links on the right, command palette on any keypress.
 
-<img width="1792" height="1131" alt="image" src="https://github.com/user-attachments/assets/5d24d334-ee43-410f-b693-aa5ff00097c5" />
+## Features
 
-## ✨ Features
+### Command palette search
 
-### 🚀 Instant Command Navigation
+- Press any letter (or `Space`) to open the search modal
+- Alias navigation: `gh` → GitHub, `yt` → YouTube, `rd` → Reddit, `ai` → ChatGPT
+- DuckDuckGo autocomplete with debounced suggestions
+- Recent searches remembered locally (last 5)
+- Domain previews, keyboard hints, and full arrow-key navigation
 
-- **Quick Aliases**: Type short commands to instantly navigate to services
-  - `yt` → YouTube, `rd` → Reddit, `gh` → GitHub, `ai` → ChatGPT
-  - `g` → GitHub, `c` → ChatGPT, `dl` → DeepL, `4c` → 4chan
-- **Smart Search Integration**: Commands with search terms (e.g., "yt linux tutorial")
-- **Category Organization**: Commands grouped into logical categories (AI, Development, Media, Tools, Services)
+### Organized link pills
 
-### 🔍 Advanced Search System
+- Categories: **AI & Chat**, **Development**, **Media**, **Tools**
+- Featured links (GitHub, YouTube Music, Spotify, Miruro, Twitter, Google Drive) render as accent-colored pills
+- Search-enabled commands: `yt linux tutorial`, `rd programming`, `ny torrent`, `4c fit`
 
-- **Transparent Modal**: Beautiful glass-morphism search interface
-- **Dual Search Engine**:
-  - **Brave Search** as default for privacy-focused results
-  - **DuckDuckGo** for instant autocomplete suggestions
-- **Smart Autocomplete**: Shows both command aliases and search suggestions
-- **Keyboard Optimized**: Arrow key navigation, Tab completion, Enter to execute
+### Art-driven design
 
-### 🎨 Modern Design
+- Local art carousel (13 pieces by [carskey1120](https://x.com/carskey1120)) crossfading every 5–30 seconds
+- Dominant color extracted from the current art tints the featured pills, focus rings, and puzzle background
+- Contrast-safe: text color is chosen per-accent with luminance checks
+- Every artwork is credited to its original artist with a source link
 
-- **Glass Morphism**: Translucent cards with backdrop blur effects
-- **Gradient Backgrounds**: Subtle gradients for depth and visual appeal
-- **Responsive Layout**: Adapts to any screen size from mobile to desktop
-- **Smooth Animations**: Hover effects and transitions for polished experience
+### Personal settings (`Ctrl+,`)
 
-### 🌓 Theme System
+- Custom username for the greeting (`ごきげんよう、{name}さん！`)
+- Carousel interval slider (5s – 30s)
+- Show / hide the clock
+- All preferences persist in `localStorage` — no accounts
 
-- **Dark/Light Mode**: Toggle between themes with persistent preference
-- **System Integration**: Automatically detects system theme preference
-- **Smooth Transitions**: All theme changes are animated
+### Theme system
 
-### ⌨️ Keyboard-First Workflow
+- Light (cream) and dark themes, toggle persisted
+- 44px touch targets, visible focus outlines, mobile scroll containment
 
-- **Any Key to Search**: Press any letter to instantly open search
-- **Fast Typing Support**: Optimized for rapid keyboard input
-- **Escape to Close**: Quick dismissal with Escape key
-- **Click Anywhere**: Click empty space to open search modal
-
-## 🚀 Quick Start
-
-### Installation
+## Quick start
 
 ```bash
 git clone https://github.com/dankehidayat/neon.git
@@ -54,90 +46,36 @@ npm install
 npm run dev
 ```
 
-### Production Build
+Production build:
 
 ```bash
 npm run build
 npm start
 ```
 
-## 💡 Usage Examples
+## Keyboard shortcuts
 
-### Basic Navigation
+| Key | Action |
+|---|---|
+| Any letter / `Space` | Open search |
+| `Escape` | Close search / modals |
+| `↑` `↓` | Navigate suggestions |
+| `Enter` | Execute selection |
+| `Ctrl/Cmd + T` | Toggle theme |
+| `Ctrl + ,` | Open settings |
+| `?` | Show help |
 
-- `gh` → GitHub
-- `yt` → YouTube
-- `rd` → Reddit
-- `ai` → ChatGPT
+## Tech stack
 
-### Search Commands
+- **Next.js 15** (App Router) + **React 19**
+- **Tailwind CSS v4** with CSS custom-property theming
+- **next/image** for the art carousel
+- **TypeScript** throughout
+- DuckDuckGo JSONP autocomplete — no backend
 
-- `yt linux tutorial` → YouTube search for "linux tutorial"
-- `rd programming` → Reddit search for "programming"
-- `ha one piece` → HiAnime search for "one piece"
-- `ny torrent` → Nyaa search for "torrent"
+## Configuration
 
-### Special Features
-
-- `rd r/opendirectories` → Direct subreddit access
-- `4c fit` → 4chan /fit/ board
-- `4c pol` → 4chan /pol/ board
-- `chan a` → 4chan /a/ board
-
-### Keyboard Shortcuts
-
-- `Any letter` → Open search with that letter
-- `Space` → Open empty search
-- `Escape` → Close search modal
-- `↑/↓` → Navigate suggestions
-- `Tab` → Select first suggestion
-- `Ctrl/Cmd + T` → Toggle theme
-- `Enter` → Execute search
-
-## 🛠 Supported Services
-
-### 🔍 Search-Enabled Services
-
-- **YouTube** (`yt`) - Video search
-- **YouTube Music** (`ytm`) - Music search
-- **Reddit** (`rd`, `r`) - Search and subreddit navigation
-- **HiAnime** (`ha`) - Anime streaming search
-- **Nyaa** (`ny`) - Torrent search
-- **4chan** (`4c`, `chan`) - Board navigation
-- **DuckDuckGo** (`ddg`) - Private search
-
-### 🎯 Quick Access
-
-- **GitHub** (`gh`, `git`)
-- **ChatGPT** (`gpt`, `ai`)
-- **Claude** (`cl`)
-- **Gemini** (`gem`, `gg`)
-- **Notion** (`note`, `nt`)
-- **DeepL** (`dl`, `translate`)
-- **Gmail** (`gm`, `mail`)
-- **Google Drive** (`gd`, `drive`)
-- **Local Development** (`dev`, `local`)
-
-## 🏗 Technical Stack
-
-- **Framework**: Next.js 15 with App Router
-- **Styling**: Tailwind CSS v4 with custom CSS variables
-- **UI Components**: shadcn/ui for consistent components
-- **TypeScript**: Full type safety throughout the application
-- **State Management**: React hooks with custom theme context
-
-## 🎯 Architecture
-
-- **Component-Based**: Modular React components (Search, Commands, ThemeToggle)
-- **Configuration-Driven**: Commands and settings in centralized config files
-- **JSONP Integration**: CORS-free autocomplete using DuckDuckGo's JSONP API
-- **Performance Optimized**: Fast loading with optimized builds
-
-## 🔧 Configuration
-
-### Adding New Commands
-
-Edit `src/lib/commands.ts` to add new services:
+Add commands in `src/lib/commands.ts`:
 
 ```typescript
 {
@@ -145,96 +83,35 @@ Edit `src/lib/commands.ts` to add new services:
   name: "Example Service",
   url: "https://example.com",
   category: "tools",
-  description: "Example description",
-  searchTemplate: "https://example.com/search?q={}", // Optional
   aliases: ["ex", "example"],
+  searchTemplate: "https://example.com/search?q={}", // optional
+  featured: true, // optional accent pill
 }
 ```
 
-### Customizing Search
+Search behavior lives in the `CONFIG` export of the same file (default engine, delimiters, suggestion limit).
 
-Modify `CONFIG` in `src/lib/commands.ts`:
+### Artwork
 
-```typescript
-export const CONFIG = {
-  defaultSearchTemplate: "https://search.brave.com/search?q={}",
-  commandSearchDelimiter: " ",
-  suggestionLimit: 4,
-};
+Drop images into `public/art/` and register them in the `ARTWORKS` array in `src/app/page.tsx` with `src`, `alt`, `artist`, and `source` — the credit link and color extraction pick them up automatically.
+
+## Project structure
+
+```
+src/
+├── app/
+│   ├── page.tsx        # Card layout, carousel, clock, color extraction, settings
+│   ├── layout.tsx      # Font + metadata
+│   └── globals.css     # Themed tokens + all component styles
+├── components/
+│   ├── Commands.tsx    # Category groups + link pills
+│   └── Search.tsx      # Command palette, autocomplete, help modal
+└── lib/
+    └── commands.ts     # Command list + config
+public/
+└── art/                # Local artwork (credited)
 ```
 
-## 🎨 Customization
+## License
 
-### Themes
-
-The theme system uses CSS variables for easy customization. Modify `src/app/globals.css`:
-
-```css
-:root {
-  --background: 220 23% 95%;
-  --foreground: 222 47% 11%;
-  /* Add your custom colors */
-}
-
-.dark {
-  --background: 222 47% 11%;
-  --foreground: 210 40% 98%;
-  /* Dark theme colors */
-}
-```
-
-### Styling
-
-- Edit component styles in respective `.tsx` files
-- Global styles in `src/app/globals.css`
-- Tailwind configuration in `tailwind.config.js`
-
-## 🌟 Use Cases
-
-- **Developers**: Quick access to GitHub, documentation, and development tools
-- **Researchers**: Fast searching across multiple services
-- **Power Users**: Keyboard-driven workflow for maximum efficiency
-- **Privacy-Conscious Users**: Brave Search as default for private browsing
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-```bash
-npm install -g vercel
-vercel
-```
-
-### Netlify
-
-```bash
-npm run build
-# Drag and drop the build folder to Netlify
-```
-
-### Self-Hosted
-
-```bash
-npm run build
-npm start
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [Tailwind CSS](https://tailwindcss.com) for the utility-first CSS framework
-- [shadcn/ui](https://ui.shadcn.com) for the component library
-- [Brave Search](https://search.brave.com) for privacy-focused search
-- [DuckDuckGo](https://duckduckgo.com) for autocomplete suggestions
-- [IAWriter](https://ia.net/topics/in-search-of-the-perfect-writing-font) for the beautiful font.
+MIT
