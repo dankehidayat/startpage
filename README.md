@@ -40,8 +40,8 @@ A cozy, keyboard-first browser startpage. One centered card: anime art carousel 
 ## Quick start
 
 ```bash
-git clone https://github.com/dankehidayat/neon.git
-cd neon-startpage
+git clone https://github.com/dankehidayat/startpage.git
+cd startpage
 npm install
 npm run dev
 ```
