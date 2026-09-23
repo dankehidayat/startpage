@@ -7,6 +7,7 @@ export interface Command {
   searchTemplate?: string;
   keywords?: string[];
   aliases?: string[];
+  featured?: boolean;
 }
 
 export const COMMANDS: Command[] = [
@@ -75,6 +76,7 @@ export const COMMANDS: Command[] = [
     description: "Code repository",
     keywords: ["code", "git", "repos"],
     aliases: ["gh", "git"],
+    featured: true,
   },
   {
     id: "notion",
@@ -133,16 +135,28 @@ export const COMMANDS: Command[] = [
     searchTemplate: "https://music.youtube.com/search?q={}",
     keywords: ["music", "songs"],
     aliases: ["ytm"],
+    featured: true,
   },
   {
-    id: "hianime",
-    name: "HiAnime",
-    url: "https://hianime.to",
+    id: "spotify",
+    name: "Spotify",
+    url: "https://open.spotify.com",
+    category: "media",
+    description: "Music streaming",
+    keywords: ["music", "songs", "streaming"],
+    aliases: ["sp"],
+    featured: true,
+  },
+  {
+    id: "miruro",
+    name: "Miruro",
+    url: "https://miruro.tv",
     category: "media",
     description: "Anime streaming",
-    searchTemplate: "https://hianime.to/search?keyword={}",
+    searchTemplate: "https://miruro.tv/search?keyword={}",
     keywords: ["anime", "watch"],
-    aliases: ["ha", "anime"],
+    aliases: ["mi", "anime"],
+    featured: true,
   },
   {
     id: "nyaa",
@@ -162,6 +176,16 @@ export const COMMANDS: Command[] = [
     description: "Bluesky social",
     keywords: ["social", "twitter"],
     aliases: ["bs", "sky"],
+  },
+  {
+    id: "twitter",
+    name: "Twitter",
+    url: "https://x.com",
+    category: "media",
+    description: "Twitter/X social",
+    keywords: ["social", "x"],
+    aliases: ["tw", "x"],
+    featured: true,
   },
   {
     id: "reddit",
@@ -229,27 +253,9 @@ export const COMMANDS: Command[] = [
     description: "Cloud storage",
     keywords: ["storage", "cloud"],
     aliases: ["gd", "drive"],
+    featured: true,
   },
 
-  // Local & Services
-  {
-    id: "port8080",
-    name: "Port 8080",
-    url: "http://localhost:8080",
-    category: "services",
-    description: "Local service",
-    keywords: ["local", "service"],
-    aliases: ["p8", "8080"],
-  },
-  {
-    id: "localhost",
-    name: "Local Dev",
-    url: "http://localhost:3000",
-    category: "services",
-    description: "Development",
-    keywords: ["dev", "local", "next"],
-    aliases: ["dev", "local", "next"],
-  },
 ];
 
 export const CATEGORIES = {
@@ -257,7 +263,6 @@ export const CATEGORIES = {
   dev: { name: "Development" },
   media: { name: "Media" },
   tools: { name: "Tools" },
-  services: { name: "Services" },
 };
 
 // 4chan boards mapping
@@ -367,5 +372,5 @@ export const CONFIG = {
   commandSearchDelimiter: " ",
   defaultSearchTemplate: "https://search.brave.com/search?q={}",
   openLinksInNewTab: true,
-  suggestionLimit: 4,
+  suggestionLimit: 8,
 };
