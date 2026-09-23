@@ -170,6 +170,8 @@
   color: var(--fg);
   letter-spacing: -0.01em;
   line-height: 1.3;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 
 .greeting-sub {
@@ -178,6 +180,7 @@
   margin-top: 0.375rem;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
@@ -256,21 +259,83 @@
   transform: translateY(0);
 }
 
-/* ==================== TOP CONTROLS ==================== */
-.top-controls {
+/* ==================== SIDE DRAWER ==================== */
+/* Group slides as one unit: closed = shifted right by (group width - 2rem tab)
+   so only the half-circle tab peeks from the edge; open = translate(0) so the
+   tab travels leftward along with the horizontal card panel. */
+.side-drawer {
   position: fixed;
-  top: 1.25rem;
-  right: 1.25rem;
+  top: 50%;
+  right: 0;
+  z-index: 55;
   display: flex;
-  gap: 0.5rem;
-  z-index: 50;
+  flex-direction: row;
+  align-items: center;
+  transform: translate(calc(100% - 2rem), -50%);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@media (max-width: 768px) {
-  .top-controls {
-    top: 0.75rem;
-    right: 0.75rem;
-  }
+.side-drawer-open {
+  transform: translate(0, -50%);
+}
+
+.side-drawer-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  height: 4.25rem;
+  padding: 0 0.5rem 0 0.625rem;
+  background: var(--card-bg);
+  border: 1px solid var(--pill-border);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  visibility: hidden;
+  transition: visibility 0s linear 0.3s;
+}
+
+.side-drawer-open .side-drawer-panel {
+  visibility: visible;
+  transition: visibility 0s linear 0s;
+}
+
+.side-drawer-tab {
+  width: 2rem;
+  height: 4.25rem;
+  border-radius: 2.125rem 0 0 2.125rem;
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  border-right: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color 0.2s ease, background 0.2s ease;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.side-drawer-tab:hover {
+  color: var(--fg);
+  background: var(--pill-hover);
+}
+
+.side-drawer-tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.side-drawer-chevron {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.side-drawer-open .side-drawer-chevron {
+  transform: rotate(180deg);
 }
 
 .top-btn {
@@ -776,7 +841,7 @@ a:focus-visible {
 
 /* ==================== PRINT ==================== */
 @media print {
-  .puzzle-bg, .top-controls { display: none !important; }
+  .puzzle-bg, .side-drawer { display: none !important; }
   body { background: white !important; color: black !important; }
   .main-card { background: white !important; border: 1px solid #ccc !important; }
 }
@@ -801,6 +866,14 @@ a:focus-visible {
   .greeting-name {
     font-size: 1.125rem;
   }
+  .side-drawer {
+    top: auto;
+    bottom: 1rem;
+    transform: translate(calc(100% - 2rem), 0);
+  }
+  .side-drawer.side-drawer-open {
+    transform: translate(0, 0);
+  }
   .search-overlay {
     padding-top: 10vh;
   }
@@ -812,5 +885,12 @@ a:focus-visible {
     margin: 1rem;
     max-height: 90vh;
     overflow-y: auto;
+  }
+}
+
+/* Narrow phones (e.g. Galaxy S20 FE ≈360×800 CSS) */
+@media (max-width: 400px) {
+  .greeting-name {
+    font-size: 1.0625rem;
   }
 }
